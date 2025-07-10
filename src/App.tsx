@@ -1,15 +1,19 @@
 import { StudentTable } from './components/StudentTable';
 import { initialStudentData } from './config/InitialStudentData';
 import styled from 'styled-components';
+import { useTheme } from './context/ThemeContext';
 
 const AppContainer = styled.div`
   padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  /* max-width: 1200px; */
+  /* margin: 0 auto; */
+  background-color: #f1f5f9;
+  min-height: 100vh;
+  width: 100vw;
 `;
 
 const Header = styled.h1`
-  color: #333;
+  color: #0f172a;
   margin-bottom: 20px;
   font-size: 24px;
 `;
@@ -21,7 +25,6 @@ const Header = styled.h1`
 function App() {
   return (
     <AppContainer>
-      <Header>Student Records</Header>
       <StudentTable initialData={initialStudentData} />
     </AppContainer>
   );

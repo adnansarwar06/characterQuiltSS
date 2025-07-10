@@ -1,13 +1,28 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
 }
 
 #root {
-  width: 100%;
   min-height: 100vh;
+  background-color: #ffffff;
+}
+
+/* Override glide-data-grid styles to match theme */
+.gdg {
+  --gdg-bg-color: var(--background-color);
+  --gdg-text-color: var(--text-color);
+  --gdg-header-bg-color: var(--surface-color);
+  --gdg-border-color: var(--border-color);
+  --gdg-row-hover-bg-color: var(--hover-color);
 }

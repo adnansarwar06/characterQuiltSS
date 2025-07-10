@@ -22,20 +22,29 @@ import { BrainIcon } from './icons/BrainIcon';
 import { PlusIcon } from './icons/PlusIcon';
 
 const Container = styled.div`
-  width: fit-content;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 16px;
   margin: 0;
+  background-color: #f1f5f9;
+  padding: 20px;
+  box-sizing: border-box;
 `;
 
 const TableContainer = styled.div`
-  padding: 2rem;
-  background-color: #f1f5f9;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+  position: relative;
+  background-color: #f1f5f9;
+  min-height: 100vh;
+  padding-bottom: 100px;
+  padding-left: 40px;
+  padding-top: 20px;
 `;
 
 const TitleBox = styled.div`
@@ -44,6 +53,8 @@ const TitleBox = styled.div`
   border-radius: 8px;
   margin-bottom: 1rem;
   width: fit-content;
+  min-width: 300px;
+  max-width: 500px;
   text-align: left;
   cursor: pointer;
   
@@ -320,7 +331,7 @@ export const StudentTable: React.FC<Props> = ({ initialData }) => {
    */
   const enhancedColumns = useMemo(() => {
     return columns.map((col, index) => ({
-      ...col,
+        ...col,
       themeOverride: {
         textDark: "#1e293b",
         bgHeader: "#f1f5f9",
@@ -422,7 +433,7 @@ export const StudentTable: React.FC<Props> = ({ initialData }) => {
     setRows(prevRows => {
       const newRows = [...prevRows];
       const newRow = { ...newRows[originalRowIndex] };
-      newRow[column.id as keyof StudentRecord] = newValue.data;
+        newRow[column.id as keyof StudentRecord] = newValue.data;
       newRows[originalRowIndex] = newRow;
       return newRows;
     });
@@ -1014,13 +1025,13 @@ export const StudentTable: React.FC<Props> = ({ initialData }) => {
       )}
 
       {isLLMDialogOpen && (
-        <RunLLMCompletionDialog
+      <RunLLMCompletionDialog
           isOpen={true}
-          onClose={() => setIsLLMDialogOpen(false)}
-          rows={rows}
-          columns={columns}
-          onComplete={handleLLMComplete}
-        />
+        onClose={() => setIsLLMDialogOpen(false)}
+        rows={rows}
+        columns={columns}
+        onComplete={handleLLMComplete}
+      />
       )}
     </TableContainer>
   );
